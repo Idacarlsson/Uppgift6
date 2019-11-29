@@ -51,32 +51,14 @@ public class Controller {
 			p.addAccount(a);
 			a.setPerson(p);
 		}
-	
-		
-		public ArrayList<Account> findPersonAccounts(String pnbr) {
-			return persons.findPersonAccounts(pnbr);
-		}
-	
-		public void setOwner(Person p) {
-		
-		}
-		
-		public Account findSpecificAccount(String pnbr, String nbr) {
-			ArrayList<Account> tmpList = persons.findPersonAccounts(pnbr);
-			if (tmpList != null ) {
-				for (Account a: tmpList) {
-					if (a.getNbr().equals(nbr)) {
-						return a;
-					}
-				}
-				
-			}
-			return null;
-			
-		}
-	
-		
 }
+		
+		
+
+	
+		
+
+
 
 
 

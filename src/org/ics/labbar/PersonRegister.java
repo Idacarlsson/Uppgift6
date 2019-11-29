@@ -35,18 +35,6 @@ import java.util.ArrayList;
 			
 	}
 
-	public ArrayList<Account> findPersonAccounts(String pnbr) {
-		for (Person p: this.person) {
-				if(p.getPnbr().equals(pnbr)){
-					return p.getAccount();
-				
-					
-				}
-				
-				
-			}
-			
-		
-		return null;
-	}
+
+	
 }

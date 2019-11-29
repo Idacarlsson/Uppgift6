@@ -63,7 +63,7 @@ public class PersonApplication {
 		textArea.setEditable(false);
 		textArea.setColumns(2);
 		textArea.setRows(10);
-		textArea.setBounds(76, 276, 210, 136);
+		textArea.setBounds(94, 276, 192, 136);
 		frame.getContentPane().add(textArea);
 		
 		
@@ -114,7 +114,7 @@ public class PersonApplication {
 			
 			
 			}
-		});
+		});// vad gör den?
 		
 		
 		
@@ -133,7 +133,7 @@ public class PersonApplication {
 					account.setBalance(0);
 					
 					tmp.addAccount(account);
-					txtBalance.setText("Account added to " + tmp.getName() + tmp.getPnbr());
+					txtBalance.setText("Account added to " + tmp.getName() + " " + tmp.getPnbr());
 				}
 				else {
 					txtBalance.setText("Person doesn't exist");
@@ -226,14 +226,7 @@ public class PersonApplication {
 				
 			}
 		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		});
 		btnFindAllYour.setBounds(100, 211, 164, 29);
 		frame.getContentPane().add(btnFindAllYour);

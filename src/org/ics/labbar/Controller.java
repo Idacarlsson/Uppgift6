@@ -35,8 +35,6 @@ public class Controller {
 		persons.removePerson(pnbrRemove);
 		
 	}
-
-	
 	public Person findPerson (String pnbr) {
 		Person tmp = persons.findPerson(pnbr);
 		if(tmp.getPnbr().equals(pnbr)) {
@@ -52,7 +50,7 @@ public class Controller {
 		}
 }
 		
-		
+		// klar
 
 	
 		

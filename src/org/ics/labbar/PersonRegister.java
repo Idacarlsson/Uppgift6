@@ -28,12 +28,10 @@ import java.util.ArrayList;
 	}
 		
 	public Person removePerson(String pNbr) {
-		for(Person tmp:person) {
-			if (tmp.getPnbr().equals(pNbr)) {
-				person.remove(tmp);
-				return tmp;
-			}
-		}
-		return null;
+		
+			Person tmp = findPerson(pNbr);
+			person.remove(tmp);
+			return tmp;
+			
 	}
 }

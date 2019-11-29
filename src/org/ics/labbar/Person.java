@@ -5,13 +5,19 @@ import java.util.ArrayList;
 public class Person {
 	private String pnbr;
 	private String name;
-	private ArrayList<Account> BankAccount= new ArrayList<Account>();
+	private ArrayList<Account> bankAccount= new ArrayList<Account>();
+	
+	public Person(String pnbr, String name) {
+		this.pnbr=pnbr;
+		this.name=name;
+		
+	}
 	
 	public void setAccount(ArrayList<Account> newLista) {
-		BankAccount=newLista;
+		bankAccount=newLista;
 	}
 	public ArrayList<Account> getAccount() {
-		return BankAccount;
+		return bankAccount;
 	}
 	public void setPnbr(String pNbr) {
 		this.pnbr=pNbr;
@@ -31,7 +37,7 @@ public class Person {
 	}
 	
 	public void addAccount(Account a) {
-	BankAccount.add(a);
+	bankAccount.add(a);
 	}
 }
 // klass person med en arraylist account,

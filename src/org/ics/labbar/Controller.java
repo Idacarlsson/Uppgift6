@@ -19,32 +19,46 @@ public class Controller {
 		
 	}
 	
-	public void addPerson(String personnr, String newName, double xBalance, String Cnbr) {
-		Person p = new Person(personnr,newName); 
-		Account account = new Account(xBalance, Cnbr);
-		p.setAccount(account);
-		Person.setPnbr(p);
-		p.getPnbr().setAccount(account);
-		
-		Person.addPerson(p);
-		
+	public void addPerson(String pnbr, String name, String nbr) {
+		Person tmpPerson = new Person(pnbr, name);
+		Account account = new Account(0, nbr);
+		account.setPerson(tmpPerson);
+		persons.addPerson(tmpPerson);
 		
 	}
+	
 
 	public void removePerson(String pnbrRemove) {
-		Controller p = null;
-		p.removePerson(pnbrRemove);
+		persons.removePerson(pnbrRemove);
 		
 	}
 
-	public String[]findPerson(String pnbr) {
-		
-			
+	
+	public Person findPerson (String pnbr) {
+		Person tmp = persons.findPerson(pnbr);
+		if(tmp.getPnbr().equals(pnbr)) {
+			return tmp;
 		}
-	return aPers;
-	}
-	public void updatePersonName(String name) {
-		Person.setName(name);
-	}
+	
+	 return null;
 }
+	
+	public Account account(String pnbr) {
+		Person tmp = findPerson(pnbr);
+		for(Account bankAccount : tmp.getAccount()) {
+			return account;
+		}
+		
+	}
+	public void addAccount(String nbr, String pnbr) {
+		Person tmp = findPerson(pnbr);
+		Account aAccount = new Account(0, pnbr);
+		tmp.addAccount(aAccount);
+		
+}
+
+
+
+}
+
 

@@ -49,7 +49,7 @@ public class PersonApplication {
 	public PersonApplication() {
 		initialize();
 	}
-
+///////
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -67,8 +67,9 @@ public class PersonApplication {
 		frame.getContentPane().add(textArea);
 		
 		
-		JButton btnAdd = new JButton("Add Person");
-		btnAdd.addActionListener(new ActionListener() {
+	
+		JButton btnAddPerson = new JButton("Add Person");
+		btnAddPerson.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			String name = textField.getText();
 			String id = textField_1.getText();
@@ -77,12 +78,13 @@ public class PersonApplication {
 			
 			
 			}
+			
 		});
-		btnAdd.setBounds(6, 99, 115, 29);
-		frame.getContentPane().add(btnAdd);
+		// Add Person
 		
-		JButton btnNewButton = new JButton("Remove Person");
-		btnNewButton.addActionListener(new ActionListener() {
+		
+		JButton btnRemovePerson = new JButton("Remove Person");
+		btnRemovePerson.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = textField.getText();
 				String id = textField_1.getText();
@@ -96,30 +98,15 @@ public class PersonApplication {
 				txtBalance.setText("Person removed");
 				}
 				
-				
 			}
 		});
-		btnNewButton.setBounds(243, 99, 139, 29);
-		buttonGroup.add(btnNewButton);
-		frame.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_3 = new JButton("All your accounts");
-		btnNewButton_3.setBounds(496, 120, 154, 29);
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String name = textField.getText();
-				String id = textField_1.getText();
-				
-				Person tmp = controller.findPerson(id);
-			
-			
-			}
-		});// vad gör den?
+		//Remove Person
+
 		
 		
-		
-		JButton btnNewButton_2 = new JButton("Add Account");
-		btnNewButton_2.addActionListener(new ActionListener() {
+	
+		JButton btnAddAccount = new JButton("Add Account");
+		btnAddAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = textField.getText();
 				String id = textField_1.getText();
@@ -141,12 +128,15 @@ public class PersonApplication {
 				
 				
 			}
+			
 		});
-		btnNewButton_2.setBounds(100, 170, 125, 29);
-		frame.getContentPane().add(btnNewButton_2);
+		// Add Account
 		
-		JButton btnNewButton_1 = new JButton("Find Person");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		
+		
+		
+		JButton btnFindPerson = new JButton("Find Person");
+		btnFindPerson.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = textField.getText();
 				String id = textField_1.getText();
@@ -162,47 +152,11 @@ public class PersonApplication {
 				}
 				
 			}
-		});
-		
-		
-		
-		btnNewButton_1.setBounds(125, 99, 117, 29);
-		frame.getContentPane().add(btnNewButton_1);
-		frame.getContentPane().add(btnNewButton_3);
-		
-		JLabel lblName = new JLabel("Name:");
-		lblName.setBounds(16, 34, 61, 16);
-		frame.getContentPane().add(lblName);
-		
-		textField = new JTextField();
-		textField.setBounds(100, 29, 120, 26);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblIdNbr = new JLabel("ID nbr:");
-		lblIdNbr.setBounds(16, 59, 61, 16);
-		frame.getContentPane().add(lblIdNbr);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(100, 64, 120, 26);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(100, 135, 120, 26);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
-		
-		JLabel lblAccountNbr = new JLabel("Account nbr:");
-		lblAccountNbr.setBounds(16, 140, 91, 16);
-		frame.getContentPane().add(lblAccountNbr);
-		
-		
-		
-		
-		
-		JButton btnFindAllYour = new JButton("Find all your accounts");
-		btnFindAllYour.addActionListener(new ActionListener() {
+			
+		}); // Find a Person
+	
+		JButton btnFindAllYourAccounts = new JButton("Find all your accounts");
+		btnFindAllYourAccounts.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
 				String name = textField.getText();
@@ -221,19 +175,78 @@ public class PersonApplication {
 						textArea.append(responseText);
 					}
 					
-//					txtBalance.setText(responseText);
+
 				}
 				
 			}
 		
-			
+			// Find all your accounts
 		});
-		btnFindAllYour.setBounds(100, 211, 164, 29);
-		frame.getContentPane().add(btnFindAllYour);
+			
+		btnAddPerson.setBounds(6, 99, 115, 29);
+		buttonGroup.add( btnAddPerson);
+		frame.getContentPane().add( btnAddPerson);
+		
+		
+		btnRemovePerson.setBounds(243, 99, 139, 29);
+		buttonGroup.add(btnRemovePerson);
+		frame.getContentPane().add(btnRemovePerson);
+		
+		
+		btnAddAccount.setBounds(100, 170, 125, 29);
+		buttonGroup.add(btnAddAccount);
+		frame.getContentPane().add(btnAddAccount);
+	
+		btnFindPerson.setBounds(125, 99, 117, 29);
+		buttonGroup.add(btnFindPerson);
+		frame.getContentPane().add(btnFindPerson);
+		
+		
+		btnFindAllYourAccounts.setBounds(100, 211, 164, 29);
+		buttonGroup.add(btnFindAllYourAccounts);
+		frame.getContentPane().add(btnFindAllYourAccounts);
+		
+		// alla buttons, add till buttomgroup
 		
 		JLabel lblNewUser = new JLabel("New User:");
 		lblNewUser.setBounds(5, 6, 92, 16);
 		frame.getContentPane().add(lblNewUser);
+		
+		JLabel name = new JLabel("Name:");
+		name.setBounds(16, 34, 61, 16);
+		frame.getContentPane().add(name);
+		
+		JLabel id = new JLabel("ID nbr:");
+		id.setBounds(16, 59, 61, 16);
+		frame.getContentPane().add(id);
+	
+		
+		JLabel balance = new JLabel("|    Balance");
+		balance.setBounds(181, 258, 83, 16);
+		frame.getContentPane().add(balance);
+		
+		JLabel AccountNbr = new JLabel("Account nbr");
+		AccountNbr.setBounds(94, 258, 83, 16);
+		frame.getContentPane().add(AccountNbr);
+		
+		// alla JLabel
+		
+		textField = new JTextField();
+		textField.setBounds(100, 29, 120, 26);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(100, 64, 120, 26);
+		frame.getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(100, 135, 120, 26);
+		frame.getContentPane().add(textField_2);
+		textField_2.setColumns(10);
+		
+		// Textfield
 		
 		txtBalance = new JTextField();
 		txtBalance.setEditable(false);
@@ -242,17 +255,16 @@ public class PersonApplication {
 		frame.getContentPane().add(txtBalance);
 		txtBalance.setColumns(100);
 		
-		JLabel lblAccountNbr_1 = new JLabel("Account nbr");
-		lblAccountNbr_1.setBounds(95, 258, 77, 16);
-		frame.getContentPane().add(lblAccountNbr_1);
-		
-		JLabel lblNewLabel = new JLabel("|    Balance");
-		lblNewLabel.setBounds(181, 258, 83, 16);
-		frame.getContentPane().add(lblNewLabel);
-		
+		// txtBalance
 		
 		personRegister = new PersonRegister();
 		controller = new Controller(personRegister, frame);
 		
 	}
 }
+	
+	
+	
+	
+	
+	

@@ -104,7 +104,16 @@ public class PersonApplication {
 		JButton btnNewButton_2 = new JButton("Add Account");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String name = textField.getText();
+				String id = textField_1.getText();
 				String nbr = textField_2.getText();
+				Person tmp = personRegister.findPerson(id);
+				
+				Controller.addPerson(id,name,nbr);
+				txtBalance.setText("Account added to" + tmp.getName() + tmp.getPnbr());
+				
+				
+				
 				
 			}
 		});

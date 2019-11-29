@@ -7,13 +7,13 @@ public class Account {
 	private Person person;
 	
 	
-	public Account(String nbr2, double balance2) {
-		// TODO Auto-generated constructor stub
-	}
-
-	public Account(double xBalance, String cnbr) {
-		// TODO Auto-generated constructor stub
-	}
+//	public Account(String nbr2, String nbr3) {
+//		// TODO Auto-generated constructor stub
+//	}
+//
+//	public Account(double xBalance, String cnbr) {
+//		// TODO Auto-generated constructor stub
+//	}
 
 	public void setPerson(Person person) {
 		this.person=person;

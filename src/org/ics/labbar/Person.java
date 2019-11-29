@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Person {
 	private String pnbr;
 	private String name;
-	private ArrayList<Account> bankAccount= new ArrayList<Account>();
+	private ArrayList<Account> account= new ArrayList<Account>();
 	
 	public Person(String pnbr, String name) {
 		this.pnbr=pnbr;
@@ -13,11 +13,11 @@ public class Person {
 		
 	}
 	
-	public void setAccount(ArrayList<Account> newLista) {
-		bankAccount=newLista;
+	public void setAccount(ArrayList<Account> account) {
+	this.account=account;
 	}
 	public ArrayList<Account> getAccount() {
-		return bankAccount;
+		return account;
 	}
 	public void setPnbr(String pNbr) {
 		this.pnbr=pNbr;
@@ -37,7 +37,7 @@ public class Person {
 	}
 	
 	public void addAccount(Account a) {
-	bankAccount.add(a);
+	account.add(a);
 	}
 }
 // klass person med en arraylist account,

@@ -36,18 +36,17 @@ import java.util.ArrayList;
 	}
 
 	public ArrayList<Account> findPersonAccounts(String pnbr) {
-		ArrayList<Person> findPersonA = new ArrayList<Person>();
 		for (Person p: this.person) {
-			if(p.getAccount().isEmpty()) {
 				if(p.getPnbr().equals(pnbr)){
-					findPersonA.add(p);
+					return p.getAccount();
+				
 					
 				}
 				
 				
 			}
 			
-		}
+		
 		return null;
 	}
 }

@@ -6,11 +6,14 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 public class PersonApplication {
 
@@ -56,15 +59,23 @@ public class PersonApplication {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
+		textArea.setColumns(2);
+		textArea.setRows(10);
+		textArea.setBounds(76, 276, 210, 136);
+		frame.getContentPane().add(textArea);
+		
+		
 		JButton btnAdd = new JButton("Add Person");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			String name = textField.getText();
 			String id = textField_1.getText();
-			
 			controller.addPerson(id, name);
 			txtBalance.setText("Person added");
-		
+			
+			
 			}
 		});
 		btnAdd.setBounds(6, 99, 115, 29);
@@ -96,6 +107,12 @@ public class PersonApplication {
 		btnNewButton_3.setBounds(496, 120, 154, 29);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String name = textField.getText();
+				String id = textField_1.getText();
+				
+				Person tmp = controller.findPerson(id);
+			
+			
 			}
 		});
 		
@@ -107,12 +124,20 @@ public class PersonApplication {
 				String name = textField.getText();
 				String id = textField_1.getText();
 				String nbr = textField_2.getText();
-				Person tmp = personRegister.findPerson(id);
 				
-				Controller.addPerson(id,name,nbr);
-				txtBalance.setText("Account added to" + tmp.getName() + tmp.getPnbr());
+				Person tmp = controller.findPerson(id);
 				
-				
+				if(tmp.getPnbr().equals(id) ) {
+					Account account = new Account();
+					account.setNbr(nbr);
+					account.setBalance(0);
+					
+					tmp.addAccount(account);
+					txtBalance.setText("Account added to " + tmp.getName() + tmp.getPnbr());
+				}
+				else {
+					txtBalance.setText("Person doesn't exist");
+				}
 				
 				
 			}
@@ -172,7 +197,44 @@ public class PersonApplication {
 		lblAccountNbr.setBounds(16, 140, 91, 16);
 		frame.getContentPane().add(lblAccountNbr);
 		
+		
+		
+		
+		
 		JButton btnFindAllYour = new JButton("Find all your accounts");
+		btnFindAllYour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.setText("");
+				String name = textField.getText();
+				String id = textField_1.getText();
+				
+				Person person = personRegister.findPerson(id);
+				ArrayList<String> strings = new ArrayList<String>();
+	
+				if (person == null) {
+					txtBalance.setText("Person doesn't exist");
+				} else {
+					String responseText = "\n"; 
+					
+					for(Account account: person.getAccount()) {
+						responseText = "\r\n" + account.getNbr() + "         " + account.getBalance() + " kr";
+						textArea.append(responseText);
+					}
+					
+//					txtBalance.setText(responseText);
+				}
+				
+			}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		});
 		btnFindAllYour.setBounds(100, 211, 164, 29);
 		frame.getContentPane().add(btnFindAllYour);
 		
@@ -181,13 +243,23 @@ public class PersonApplication {
 		frame.getContentPane().add(lblNewUser);
 		
 		txtBalance = new JTextField();
-		txtBalance.setBounds(43, 246, 289, 165);
+		txtBalance.setEditable(false);
+		txtBalance.setHorizontalAlignment(SwingConstants.LEFT);
+		txtBalance.setBounds(33, 424, 331, 32);
 		frame.getContentPane().add(txtBalance);
-		txtBalance.setColumns(10);
+		txtBalance.setColumns(100);
+		
+		JLabel lblAccountNbr_1 = new JLabel("Account nbr");
+		lblAccountNbr_1.setBounds(95, 258, 77, 16);
+		frame.getContentPane().add(lblAccountNbr_1);
+		
+		JLabel lblNewLabel = new JLabel("|    Balance");
+		lblNewLabel.setBounds(181, 258, 83, 16);
+		frame.getContentPane().add(lblNewLabel);
+		
 		
 		personRegister = new PersonRegister();
 		controller = new Controller(personRegister, frame);
 		
 	}
-	
 }

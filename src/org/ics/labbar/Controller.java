@@ -20,9 +20,12 @@ public class Controller {
 		
 	}
 	
-	public void addPerson(String pnbr, String name, String nbr) {
+	public void addPerson(String pnbr, String name, String nbr, double balance) {
 		Person tmpPerson = new Person(pnbr, name);
-		Account account = new Account(0, nbr);
+		Account account = new Account();
+		account.setNbr(nbr);
+		account.setBalance(balance);
+		
 		tmpPerson.addAccount(account);
 		account.setPerson(tmpPerson);
 		persons.addPerson(tmpPerson);
@@ -49,22 +52,7 @@ public class Controller {
 			a.setPerson(p);
 		}
 	
-		public void credit(double amount, String pnbr, String nbr) {
-			Account tmp = findSpecificAccount(pnbr, nbr);
-			if (tmp != null) {
-				tmp.credit(amount); {
-					
-				}
-			}
-			
-		}
-	
-		public void withdraw(double amount, String pnbr, String nbr) {
-			Account tmp = findSpecificAccount(pnbr, nbr); 
-			if (tmp != null) {
-				tmp.withdraw(amount);
-			}
-		}
+		
 		public ArrayList<Account> findPersonAccounts(String pnbr) {
 			return persons.findPersonAccounts(pnbr);
 		}

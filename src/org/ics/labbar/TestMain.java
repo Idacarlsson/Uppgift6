@@ -21,16 +21,12 @@ public class TestMain {
 		b2.setNbr("444");
 		b2.setBalance(400);
 
-		Person a = new Person();
-		a.setName("Ida Carlsson");
-		a.setPnbr("990511-5805");
+		Person a = new Person("Ida Carlsson", "990511-5805");
 		a.addAccount(a1);
 		a.addAccount(a2);
 		pr.addPerson(a);
 
-		Person b = new Person();
-		b.setName("Linnea Forsler");
-		b.setPnbr("980101-5805");
+		Person b = new Person("Linnea Forsler", "980101-5805");
 		b.addAccount(b1);
 		b.addAccount(b2);
 		pr.addPerson(b);
